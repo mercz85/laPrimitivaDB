@@ -141,7 +141,7 @@ END
 GO
 
 
--- 
+-- GENERAR NUMERO ALEATORIO
 go
 create procedure generaNumeroAleatorio
 	@numeroAleatorio int output
