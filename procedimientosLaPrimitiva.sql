@@ -1,24 +1,24 @@
-/*	Lotería primitiva
+/*	LoterÃ­a primitiva
 
-Programación parte 1
-•	Implementa un procedimiento almacenado GrabaSencilla que grabe una apuesta simple. Datos de entrada: El sorteo y los seis números
-•	Implementa un procedimiento GrabaMuchasSencillas que genere n boletos con una apuesta sencilla utilizando el procedimiento GrabaSencilla. Datos de entrada: El sorteo y el valor de n
-•	Implementa un procedimiento almacenado GrabaMultiple que grabe una apuesta simple. Datos de entrada: El sorteo y entre 5 y 11 números
-
-
+ProgramaciÃ³n parte 1
+â€¢	Implementa un procedimiento almacenado GrabaSencilla que grabe una apuesta simple. Datos de entrada: El sorteo y los seis nÃºmeros
+â€¢	Implementa un procedimiento GrabaMuchasSencillas que genere n boletos con una apuesta sencilla utilizando el procedimiento GrabaSencilla. Datos de entrada: El sorteo y el valor de n
+â€¢	Implementa un procedimiento almacenado GrabaMultiple que grabe una apuesta simple. Datos de entrada: El sorteo y entre 5 y 11 nÃºmeros
 
 
--- Para números enteros
+
+
+-- Para nÃºmeros enteros
 SELECT ROUND(((20 - 1) * RAND() + 1), 0)
  
--- Para números decimales
+-- Para nÃºmeros decimales
 SELECT ROUND(((20 - 1) * RAND() + 1), 4)
 
 
 */
 
 
--- 1)GrabaSencilla que grabe una apuesta simple. Datos de entrada: El sorteo y los seis números
+-- 1)GrabaSencilla que grabe una apuesta simple. Datos de entrada: El sorteo y los seis nÃºmeros
 
 --USE  laPrimitiva
 
@@ -73,7 +73,7 @@ BEGIN
 			(@num5=@num6))
 			begin
 				ROLLBACK
-				Print 'Has introducido un número repetido'
+				Print 'Has introducido un nÃºmero repetido'
 			end
 end
 GO
@@ -141,6 +141,17 @@ END
 GO
 
 
+-- 
+go
+create procedure generaNumeroAleatorio
+	@numeroAleatorio int output
+as
+	begin
+		declare @valorMaximo int = 49, @valorMinimo int = 1
+		select @numeroAleatorio = floor((@valorMaximo - @valorMinimo +1) * rand() + @valorMinimo)
+		return @numeroAleatorio
+	end
+go
 
 
 
